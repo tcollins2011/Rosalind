@@ -1,3 +1,5 @@
+
+# Cleans the fasta file by combing the identifying line of the fasta file with the sequence info in a list
 def clean_fasta(fasta):
     results = []
     data = fasta.strip().split('>')
@@ -10,7 +12,7 @@ def clean_fasta(fasta):
             results.append((first, rest))
     return results
 
-
+#  Loops through the cleaned fast a file and looks for an overlap in the final n nucleotides of one string and the first n nucleotides of another
 def overlap_graph(fasta, n):
     results = []
 
@@ -24,20 +26,9 @@ def overlap_graph(fasta, n):
     return results
 
 
+#imports a data set of fasta DNA sequences if this the main module and then then runs overlapgraph graph for every entry
+# Returns the fasta line identifier for sequences that overlap
 if __name__ == "__main__":
-
-    small_dataset = """
-                    >Rosalind_0498
-                    AAATAAA
-                    >Rosalind_2391
-                    AAATTTT
-                    >Rosalind_2323
-                    TTTTCCC
-                    >Rosalind_0442
-                    AAATCCC
-                    >Rosalind_5013
-                    GGGTGGG
-                    """
 
     large_dataset = open('data_set.txt').read()
 
